@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<link rel="icon" href="favicon.ico" />
+<div class="bg">	
+
+<head>
+
+	<title>Dofus Clicker</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="js/script.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+<head>	
+<header>
+
+	<img id="logo" src="img/Dofus_Logo.png" alt="logo">
+	<div class="title">
+	<img id="title" src="img/image.png" alt="title">	
+	</div>
+	<div class="minigame">
+    <a class="insta" href="Mini jeu/balle.html" ><img src="img/bouftou.png" height="150px" width="150px"/></a>
+    <p> Try an other Mini Game	</p>
+	</div>
+	
+</header>
+<body>
+
+	<div class="tout">
+	<div class="titre"> <p> Current Kamas</p> </div>
+		<section id=gold>
+		<script>displayGolds();</script>
+	</section>
+	<div class="titre2"> <p> Kamas/sec</p> </div>
+	<section id=gps>
+		<script>displayGPS();</script>
+	</section><br>
+	<input type="image" id="image" src="img/emeraude.png" onclick="addGold(goldPerClick)"></input>
+	<section id="shop">
+		<table>
+			<thead>
+				<tr>
+					<th colspan="2">Shop</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>Name</th>
+					<th>Kamas/sec</th>
+					<th>Cost</th>
+				</tr>
+				<tr>
+					<td>Piou</td>
+					<td id=gps1><script>displayMinionGPS(1)</script></td>
+					<td id="cost1"><script>displayMinionCost(1)</script></td>
+					<td><button onclick="buyMinion(1)">Buy</button></td>
+				</tr>
+				<tr>
+					<td>Tofu</td>
+					<td id=gps2><script>displayMinionGPS(2)</script></td>
+					<td id="cost2"><script>displayMinionCost(2)</script></td>
+					<td><button onclick="buyMinion(2)">Buy</button></td>
+				</tr>
+				<tr>
+					<td>Blop</td>
+					<td id=gps3><script>displayMinionGPS(3)</script></td>
+					<td id="cost3"><script>displayMinionCost(3)</script></td>
+					<td><button onclick="buyMinion(3)">Buy</button></td>
+				</tr>
+
+				<tr>
+					<td>Moon</td>
+					<td id=gps4><script>displayMinionGPS(4)</script></td>
+					<td id="cost4"><script>displayMinionCost(4)</script></td>
+					<td><button onclick="buyMinion(4)">Buy</button></td>
+				</tr>
+			</tbody>
+		</table>		
+	</section>
+
+	<section id="displayOwned">
+		<script>displayOwned();</script>
+	</section>
+	</div>
+	
+
+</div>
+
+</body>
+</html>

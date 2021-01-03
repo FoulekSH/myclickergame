@@ -1,0 +1,95 @@
+  
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Gamedev Canvas Workshop - lesson 2: move the ball</title>
+    <style>* { padding: 0; margin: 0; } canvas { background: #eee; display: block; margin: 0 auto; }</style>
+</head>
+<body>
+<canvas  id="myCanvas"width="480" height="320"></canvas>
+<div> Golds: <a id="clicks">0</a></div>
+<button type="button" onClick="ballSpeed()">ball speed</button>
+<div> Speed: <a id="currentspeed">0</a></div>
+
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var x = canvas.width/2;
+    var y = canvas.height-30;
+    var dx = 2;
+    var dy = -2;
+    var ballRadius = 30;
+    var gold = 0;
+	var vitesse = 3;
+	var speedCost = 5;
+
+    function drawBall() {
+        ctx.beginPath();
+        ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+        ctx.closePath();
+    }
+	function displayGolds()  {    
+	document.getElementById("clicks").innerHTML = gold;
+	}
+	function addGold(x) {
+	   x = 1;
+       gold = gold + x;
+    displayGolds()
+	}
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBall();
+    var nb = Math.floor(Math.random() * vitesse) + (vitesse - 2)
+
+    if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+        dx = - nb;
+        addGold()
+    }
+    if (x + dx < ballRadius) {
+    	dx = nb;
+    	addGold()
+    }
+
+    if(y + dy > canvas.height-ballRadius) {
+        dy = -nb;
+        addGold()
+    }
+    if (y + dy < ballRadius) {
+    	dy =  nb;
+    	addGold()
+    }
+    
+    x += dx;
+    y += dy;
+		displayGolds()
+
+	}
+	function displayGolds()  {    
+	document.getElementById("clicks").innerHTML = gold;
+	}
+
+	function ballSpeed() {
+		if (gold >= speedCost) {
+			gold-= speedCost;
+			vitesse+= 1.5;
+			speedCost*= 1.5;
+
+		}
+
+		displaySpeed()
+		displayGolds()
+	}
+	function displaySpeed()  {    
+	document.getElementById("currentspeed").innerHTML = vitesse;
+	}
+	displaySpeed()
+
+	setInterval(draw, 20);
+</script>
+
+</body>
+</html>

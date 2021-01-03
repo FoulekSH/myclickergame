@@ -1,0 +1,4 @@
+La balle rebondit sur les parois du mur dans une direction aléatoire.
+A chaque fois qu'elle touche un mur elle rapporte 1 gold.
+Il y a un bouton pour acheter de la vitesse pour qu'elle rapporte plus de gold.
+Malheuresement nous n'avons pas réussis à l'intégrer au jeu de base.
